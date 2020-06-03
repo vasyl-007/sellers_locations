@@ -1,0 +1,86 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #555252;
+  margin-bottom: 30px;
+}
+
+.modal__window_map {
+  display: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.modal__window_map:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#modal__maps_id {
+  width: 600px;
+  height: 400px;
+  border-radius: 16px;
+  /* margin: 0 10px; */
+}
+
+.active {
+  display: block;
+}
+
+.li__container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* background-color: rgb(197, 209, 209); */
+}
+
+.products__list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.products__list-item {
+  padding-left: 14px;
+  display: block;
+  width: 260px;
+  height: 400px;
+  list-style: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.products__list-item:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.product__header {
+  padding: 15px 0 10px 0;
+}
+.product__info {
+  font-size: 12px;
+  margin-bottom: 12px;
+  padding: 6px 10px 4px 0;
+}
+.button__show-map {
+  display: block;
+  width: 120px;
+  height: 30px;
+  background-color: rgb(182, 174, 174);
+  color: white;
+  border: none;
+  outline: none;
+}
+.button__show-map:hover {
+  background-color: rgb(148, 126, 126);
+  color: white;
+}

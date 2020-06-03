@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google_maps</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- <style>
+      #modal__maps_id {
+        height: 400px;
+        width: 50%;
+      }
+    </style> -->
+  </head>
+  <!-- <body>
+    <h2>Tech providers</h2>
+    <div class="li__container">
+      <ul class="products__list">
+        <li class="products__list-item">
+          <h3 class="product__header">Toshiba</h3>
+          <p class="product__info">
+            Specializations: Semiconductors, Storage Products, Microwave
+            Semiconductors and Components, etc.
+          </p>
+          <p class="product__info">tel: +81-3-3246-1842</p>
+          <p class="product__info">
+            Address: Hamamatsucho; Kawasaki. Hamamatsucho. Address: 1-1,
+            Shibaura 1-chome
+          </p>
+          <button id="btn__show_map" class="button__show-map">
+            Show on map
+          </button>
+        </li>
+
+        <div class="modal__window_map" id="modal__maps_id"></div>
+      </ul>
+    </div>
+    <script type="text/javascript" src="./index.js"></script>
+
+    <script type="text/javascript">
+      const showBtn = document.querySelector(".button__show-map");
+      const showModalWindow = document.getElementById("modal__maps_id");
+      console.log(showBtn);
+      console.log(showModalWindow);
+
+      showBtn.addEventListener("click", toggleGoogleMap);
+
+      function toggleGoogleMap() {
+        if (showBtn.innerHTML === "Hide map") {
+          showModalWindow.classList.remove("active");
+          showBtn.innerHTML = "Show on map";
+        } else {
+          showModalWindow.classList.add("active");
+          showBtn.innerHTML = "Hide map";
+        }
+        // showBtn.innerHTML = "Hide map";
+      }
+    </script>
+
+    <script>
+      function initMap() {
+        var opt = {
+          center: { lat: 50.43884, lng: 30.523433 },
+          zoom: 15,
+        };
+
+        var map = new google.maps.Map(
+          document.getElementById("modal__maps_id"),
+          opt
+        );
+
+        // setMarkers(map);
+      }
+    </script>
+    <script type="text/javascript">
+      var PERSONAL_API_KEY_SECRET = "AIzaSyBMBAt48zxbNQ25d0wN7PyzrTGB9KlK6kA";
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMBAt48zxbNQ25d0wN7PyzrTGB9KlK6kA&callback=initMap"
+    ></script>
+
+    <style rel="stylesheet">
+      .maps_container {
+        display: block;
+        width: 250px;
+        height: 100px;
+      }
+    </style>
+  </body> -->
+
+  <!-- ================================================= -->
+
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title>Marker Labels</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMBAt48zxbNQ25d0wN7PyzrTGB9KlK6kA"></script>
+    <script>
+      // In the following example, markers appear when the user clicks on the map.
+      // Each marker is labeled with a single alphabetical character.
+      var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var labelIndex = 0;
+
+      function initialize() {
+        var bangalore = { lat: 12.97, lng: 77.59 };
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: bangalore,
+        });
+
+        // This event listener calls addMarker() when the map is clicked.
+        google.maps.event.addListener(map, "click", function (event) {
+          addMarker(event.latLng, map);
+        });
+
+        // Add a marker at the center of the map.
+        addMarker(bangalore, map);
+      }
+
+      // Adds a marker to the map.
+      function addMarker(location, map) {
+        // Add the marker at the clicked location, and add the next-available label
+        // from the array of alphabetical characters.
+        var marker = new google.maps.Marker({
+          position: location,
+          label: labels[labelIndex++ % labels.length],
+          map: map,
+        });
+      } 
+ 
+      google.maps.event.addDomListener(window, "load", initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+  <!-- ================================================= -->
+</html>
