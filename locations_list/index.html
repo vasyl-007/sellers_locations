@@ -3,152 +3,254 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Google_maps</title>
+    <title>Locations</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <!-- <style>
-      #modal__maps_id {
-        height: 400px;
-        width: 50%;
-      }
-    </style> -->
-  </head>
-  <!-- <body>
-    <h2>Tech providers</h2>
-    <div class="li__container">
-      <ul class="products__list">
-        <li class="products__list-item">
-          <h3 class="product__header">Toshiba</h3>
-          <p class="product__info">
-            Specializations: Semiconductors, Storage Products, Microwave
-            Semiconductors and Components, etc.
-          </p>
-          <p class="product__info">tel: +81-3-3246-1842</p>
-          <p class="product__info">
-            Address: Hamamatsucho; Kawasaki. Hamamatsucho. Address: 1-1,
-            Shibaura 1-chome
-          </p>
-          <button id="btn__show_map" class="button__show-map">
-            Show on map
-          </button>
-        </li>
-
-        <div class="modal__window_map" id="modal__maps_id"></div>
-      </ul>
-    </div>
-    <script type="text/javascript" src="./index.js"></script>
-
-    <script type="text/javascript">
-      const showBtn = document.querySelector(".button__show-map");
-      const showModalWindow = document.getElementById("modal__maps_id");
-      console.log(showBtn);
-      console.log(showModalWindow);
-
-      showBtn.addEventListener("click", toggleGoogleMap);
-
-      function toggleGoogleMap() {
-        if (showBtn.innerHTML === "Hide map") {
-          showModalWindow.classList.remove("active");
-          showBtn.innerHTML = "Show on map";
-        } else {
-          showModalWindow.classList.add("active");
-          showBtn.innerHTML = "Hide map";
-        }
-        // showBtn.innerHTML = "Hide map";
-      }
-    </script>
-
-    <script>
-      function initMap() {
-        var opt = {
-          center: { lat: 50.43884, lng: 30.523433 },
-          zoom: 15,
-        };
-
-        var map = new google.maps.Map(
-          document.getElementById("modal__maps_id"),
-          opt
-        );
-
-        // setMarkers(map);
-      }
-    </script>
-    <script type="text/javascript">
-      var PERSONAL_API_KEY_SECRET = "AIzaSyBMBAt48zxbNQ25d0wN7PyzrTGB9KlK6kA";
-    </script>
+    <script src="./index.js" type="text/javascript"></script>
     <script
       async
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMBAt48zxbNQ25d0wN7PyzrTGB9KlK6kA&callback=initMap"
     ></script>
 
-    <style rel="stylesheet">
-      .maps_container {
-        display: block;
-        width: 250px;
-        height: 100px;
-      }
-    </style>
-  </body> -->
-
-  <!-- ================================================= -->
-
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta charset="utf-8" />
-    <title>Marker Labels</title>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMBAt48zxbNQ25d0wN7PyzrTGB9KlK6kA"></script>
-    <script>
-      // In the following example, markers appear when the user clicks on the map.
-      // Each marker is labeled with a single alphabetical character.
-      var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      var labelIndex = 0;
-
-      function initialize() {
-        var bangalore = { lat: 12.97, lng: 77.59 };
-        var map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 12,
-          center: bangalore,
-        });
-
-        // This event listener calls addMarker() when the map is clicked.
-        google.maps.event.addListener(map, "click", function (event) {
-          addMarker(event.latLng, map);
-        });
-
-        // Add a marker at the center of the map.
-        addMarker(bangalore, map);
-      }
-
-      // Adds a marker to the map.
-      function addMarker(location, map) {
-        // Add the marker at the clicked location, and add the next-available label
-        // from the array of alphabetical characters.
-        var marker = new google.maps.Marker({
-          position: location,
-          label: labels[labelIndex++ % labels.length],
-          map: map,
-        });
-      } 
- 
-      google.maps.event.addDomListener(window, "load", initialize);
-    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
-    <div id="map"></div>
-  </body>
-  <!-- ================================================= -->
+
+  <div class="add__newaddress_container">
+    <a class="nav__link nav__link--btn" href="#" data-modal="#modal_hire_me"
+      >Добавить адрес</a
+    >
+  </div>
+  <h2 class="sales__points_header">Торговые точки</h2>
+
+  <form id="form__complete" class="sales__points" action="#" method="post">
+    <div class="sales__point">
+      <div>
+        <label class="form__label" for="input_coords_1">х: у: </label>
+        <input
+          class="sales__point_input"
+          name="input-coords"
+          type="text"
+          id="input_coords_1"
+          placeholder="координаты"
+        />
+      </div>
+      <div>
+        <label class="form__label" for="input_name_2">название </label>
+        <input
+          class="sales__point_input"
+          name="input-name"
+          type="text"
+          id="input_name_2"
+          placeholder="название торговой точки"
+        />
+      </div>
+      <div>
+        <label class="form__label" for="input_city_3">город </label>
+        <input
+          class="sales__point_input"
+          name="input-city"
+          type="text"
+          id="input_city_3"
+          placeholder="насел. пункт"
+        />
+      </div>
+      <div>
+        <label class="form__label" for="input_street_4">ул. </label>
+        <input
+          class="sales__point_input"
+          name="input-street"
+          type="text"
+          id="input_street_4"
+          placeholder="улица / пр-т"
+        />
+      </div>
+      <div>
+        <label class="form__label" for="input_housenumber_5"> дом № </label>
+        <input
+          class="sales__point_input"
+          name="input-housenumber"
+          type="text"
+          id="input_housenumber_5"
+          placeholder="номер дома"
+        />
+      </div>
+      <div>
+        <label class="form__label" for="input_phone_6">телефон: </label>
+        <input
+          class="sales__point_input"
+          name="input-phone"
+          type="text"
+          id="input_phone_6"
+          placeholder="контактный номер телефона"
+        />
+      </div>
+      <div>
+        <label class="form__label" for="input_email_7"> email: </label>
+        <input
+          class="sales__point_input"
+          name="input-email"
+          type="text"
+          id="input_email_7"
+          placeholder="эл.почта"
+        />
+      </div>
+      <button>Редактировать</button>
+    </div>
+
+    <!-- 
+        <div class="sales__point" data-modal="#modal_details">
+            <p class="sales__point_name">Название точки / магазина / ТРЦ</p>
+            <div class="sales__point_contacts">
+
+                <label class="form__label" for="input_city">Город/насел. пункт</label>
+                <input class="form__input" name="input-city" type="text" id="input_city" placeholder="Название населенного пункта">
+
+                <p class="sales__point_address"> название: <input class="sales__point_input" type="text" value=" ООО 'Золотое Руно'">
+                    <label class="form__label" for="input_city">Город/насел. пункт</label>
+                    <input class="form__input" name="input-city" type="text" id="input_city" placeholder="Название населенного пункта">
+
+                </p>
+                <p class="sales__point_details">город: <input class="sales__point_input" type="text" value="Киев"></p>
+                <p class="sales__point_details">ул/пр-т: <input class="sales__point_input" type="text" value="Владимирская"></p>
+                <p class="sales__point_details">дом №: <input class="sales__point_input" type="text" value="38"></p>
+                <p class="sales__point_details">телефон: <input class="sales__point_input" type="text" value="044-224-24-50"></p>
+                <p class="sales__point_details">email: <input class="sales__point_input" type="text" value="supplier@gmail.com"></p>
+            </div>
+        </div> -->
+
+    <div class="sales__point" data-modal="#modal_details">
+      <p class="sales__point_name">Название точки / магазина / ТРЦ</p>
+      <div class="sales__point_contacts">
+        <p class="sales__point_address">
+          название:
+          <input
+            class="sales__point_input"
+            type="text"
+            value=" ООО 'Золотое Руно'"
+          />
+        </p>
+        <p class="sales__point_details">
+          город: <input class="sales__point_input" type="text" value="Киев" />
+        </p>
+        <p class="sales__point_details">
+          ул/пр-т:
+          <input class="sales__point_input" type="text" value="Владимирская" />
+        </p>
+        <p class="sales__point_details">
+          дом №: <input class="sales__point_input" type="text" value="38" />
+        </p>
+        <p class="sales__point_details">
+          телефон:
+          <input class="sales__point_input" type="text" value="044-224-24-50" />
+        </p>
+        <p class="sales__point_details">
+          email:
+          <input
+            class="sales__point_input"
+            type="text"
+            value="supplier@gmail.com"
+          />
+        </p>
+      </div>
+    </div>
+  </form>
+
+  <!-- ======================================================================== -->
+
+  <div class="modal" id="modal_hire_me">
+    <div class="modal__dialog modal__dialog--sm">
+      <button class="modal__close" type="button" data-close>
+        <img
+          class="img__modal_hover"
+          src="https://img.icons8.com/all/500/close-window.png"
+          width="26px"
+          height="26px"
+          alt="Close"
+        />
+      </button>
+
+      <div class="contact">
+        <div class="contact__left">
+          <h3 class="modal__title">НАЗВАНИЕ ТОЧКИ/МАГАЗИНА/ТРЦ</h3>
+          <h4 class="modal__subtitle">АДРЕС:</h4>
+
+          <form id="searchForm" class="form" action="#" method="post">
+            <div class="form__group">
+              <label class="form__label" for="input_city"
+                >Город/насел. пункт</label
+              >
+              <input
+                class="form__input"
+                name="input-city"
+                type="text"
+                id="input_city"
+                placeholder="Название населенного пункта"
+              />
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="input_street"
+                >улица/пр-т/переул.</label
+              >
+              <input
+                class="form__input"
+                name="input-street"
+                type="text"
+                id="input_street"
+                placeholder="Название улицы/пр-та/переулка"
+              />
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="input_housenumber"
+                >номер дома</label
+              >
+              <input
+                class="form__input"
+                name="input-housenumber"
+                type="text"
+                id="input_housenumber"
+                placeholder="номер дома (блок, подъезд, этаж)"
+              />
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="input_phone">телефон</label>
+              <input
+                class="form__input"
+                name="input-phone"
+                type="text"
+                id="input_phone"
+                placeholder="контактный номер телефона"
+              />
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="input_email">email</label>
+              <input
+                class="form__input"
+                name="input-email"
+                type="text"
+                id="input_email"
+                placeholder="эл.почта"
+              />
+            </div>
+
+            <div class="text-right">
+              <button class="btn" type="submit">ДОБАВИТЬ</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact__right">
+          <p class="sales__point_map">Отметить на карте</p>
+          <div id="id__contacts_modal" class="map__contacts_modal"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>
